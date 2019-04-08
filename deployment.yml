@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: my-demo-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: my-demo-app
+        app: my-demo-app
+        branch: {{CF_BRANCH_TAG_NORMALIZED}}
+        custom-label: {{MY_CUSTOM_LABEL}}
+        from: {{CF_REPO_NAME}}
+    spec:
+      containers:
+      - name: my-demo-app
+        image: r.cfcr.io/{{CF_ACCOUNT}}/trivial-web:{{CF_SHORT_REVISION}}
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+      imagePullSecrets:
+        - name: codefresh-generated-r.cfcr.io-cfcr-colors

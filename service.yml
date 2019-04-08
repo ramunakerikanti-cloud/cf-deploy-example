@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-demo-app
+  annotations:
+    last-revision: "{{CF_REVISION}}"
+spec:
+  ports:
+  - name: http1
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: my-demo-app
+  sessionAffinity: None
+  type: LoadBalancer

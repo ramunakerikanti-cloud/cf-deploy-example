@@ -1,0 +1,21 @@
+version: '1.0'
+steps:
+  BuildingDockerImage:
+    title: Building Docker Image
+    type: build
+    image_name: trivial-web
+    working_directory: ./example/
+    tag: '${{CF_SHORT_REVISION}}'
+    dockerfile: Dockerfile
+  MyDeploy:
+    title: K8s Deploy
+    image: codefresh/cf-deploy-kubernetes
+    commands:
+      - /cf-deploy-kubernetes deployment.yml service.yml 
+    environment:
+      - KUBECONTEXT=kostis-demo@FirstKubernetes
+      - KUBERNETES_NAMESPACE=my-namespace
+
+   
+
+  
