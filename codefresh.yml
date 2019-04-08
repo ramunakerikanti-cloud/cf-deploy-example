@@ -16,6 +16,7 @@ steps:
       - KUBECONTEXT=kostis-demo@FirstKubernetes
       - KUBERNETES_NAMESPACE=my-namespace
       - MY_CUSTOM_LABEL=build-id-${{CF_BUILD_ID}} 
+      - MY_REPLICA_NUMBER=3 
       - PULL_SECRET=codefresh-generated-r.cfcr.io-cfcr-my-namespace
 
    

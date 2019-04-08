@@ -7,7 +7,7 @@ metadata:
     custom-label: {{MY_CUSTOM_LABEL}}
     from: {{CF_REPO_NAME}}
 spec:
-  replicas: 2
+  replicas: {{MY_REPLICA_NUMBER}}
   template:
     metadata:
       labels:
