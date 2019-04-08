@@ -22,4 +22,4 @@ spec:
           containerPort: 8080
           protocol: TCP
       imagePullSecrets:
-        - name: codefresh-generated-r.cfcr.io-cfcr-colors
+        - name: {{PULL_SECRET}}
