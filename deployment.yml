@@ -2,6 +2,10 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: my-demo-app
+  annotations:
+    branch: {{CF_BRANCH_TAG_NORMALIZED}}
+    custom-label: {{MY_CUSTOM_LABEL}}
+    from: {{CF_REPO_NAME}}
 spec:
   replicas: 2
   template:
@@ -9,9 +13,6 @@ spec:
       labels:
         name: my-demo-app
         app: my-demo-app
-        branch: {{CF_BRANCH_TAG_NORMALIZED}}
-        custom-label: {{MY_CUSTOM_LABEL}}
-        from: {{CF_REPO_NAME}}
     spec:
       containers:
       - name: my-demo-app
