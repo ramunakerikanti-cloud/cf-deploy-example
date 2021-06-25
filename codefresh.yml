@@ -15,7 +15,6 @@ steps:
     environment:
       - KUBECONTEXT=gke_elaborate-hash-315012_us-west1-c_quick-demo
       - KUBERNETES_NAMESPACE=vanccio
-      - MY_CUSTOM_LABEL=build-id-${{CF_BUILD_ID}} 
       - MY_REPLICA_NUMBER=3
 
    
