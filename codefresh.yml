@@ -3,7 +3,7 @@ steps:
   BuildingDockerImage:
     title: Building Docker Image
     type: build
-    image_name: trivial-web
+    image_name: ramunakeriknati/trivial-web
     tag: '${{CF_SHORT_REVISION}}'
     dockerfile: Dockerfile
   MyDeploy:
@@ -13,8 +13,8 @@ steps:
       - /cf-deploy-kubernetes deployment.yml 
       - /cf-deploy-kubernetes service.yml   
     environment:
-      - KUBECONTEXT=kostis-demo@FirstKubernetes
-      - KUBERNETES_NAMESPACE=my-namespace
+      - KUBECONTEXT=gke_elaborate-hash-315012_us-west1-c_quick-demo
+      - KUBERNETES_NAMESPACE=vanccio
       - MY_CUSTOM_LABEL=build-id-${{CF_BUILD_ID}} 
       - MY_REPLICA_NUMBER=3 
       - PULL_SECRET=codefresh-generated-r.cfcr.io-cfcr-my-namespace
